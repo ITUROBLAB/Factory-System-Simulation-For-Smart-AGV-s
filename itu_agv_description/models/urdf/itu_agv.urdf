@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+
+<robot
+  name="ITU_AGV">
+
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <link name="base_link">
+    <visual>  
+       <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://itu_agv_description/meshes/agv.dae"/>
+      </geometry>
+    </visual> 
+    <collision>
+    	<geometry>
+    	  <mesh
+          filename="package://itu_agv_description/meshes/agv.dae"/>
+    	</geometry>
+    </collision>
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="0.07" ixy="0.0" ixz="0.0" iyy="0.08" iyz="0.0" izz="0.1"/>
+    </inertial>	
+  </link>
+  
+    <link name="front_caster">
+  	<visual>
+  		<pose xyz="0 0.25 0.05" rpy="0 0 0"/>
+  		<geometry>
+        	   <sphere radius="0.05"/>
+        	</geometry>
+        </visual>
+        <collision>
+        	<pose xyz="0 0.25 0.05" rpy="0 0 0"/>
+  		<geometry>
+        	   <sphere radius="0.05"/>
+        	</geometry>
+        </collision>
+   </link>
+   
+   <joint name="base_link_to_front_caster" type="fixed">
+       <parent link="base_link"/>
+       <child link="front_caster"/>
+       <origin xyz="0 0.25 0.03" rpy="0 0 0"/>
+  </joint> 
+   
+   <link name="back_caster">
+  	<visual>
+  		<pose xyz="0 -0.25 0.03" rpy="0 0 0"/>
+  		<geometry>
+        	   <sphere radius="0.05"/>
+        	</geometry>
+        </visual>
+        <collision>
+        	<pose xyz="0 -0.25 0.03" rpy="0 0 0"/>
+  		<geometry>
+        	   <sphere radius="0.05"/>
+        	</geometry>
+        </collision>
+   </link>
+   
+   <joint name="base_link_to_back_caster" type="fixed">
+      <parent link="base_link"/>
+      <child link="back_caster"/>
+      <origin xyz="0 -0.25 0.03" rpy="0 0 0"/>
+   </joint>
+   
+   <link name="AGV_1/base_footprint"/>
+    <joint name="base_joint" type="fixed">
+       <parent link="AGV_1/base_footprint"/>
+       <child link="base_link"/>
+       <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint> 
+  
+   <link name="wheel_left">
+       <visual>
+          <origin xyz="0 0 0"  rpy="0 0 0" />
+          <geometry>
+      	     <cylinder radius="0.1" length="0.05"/>
+          </geometry>
+       </visual>
+       <collision>
+  	  <geometry>
+      	     <cylinder radius="0.1" length="0.05"/>
+        </geometry>
+       </collision>
+   </link>
+   
+   <joint name="base_link_to_wheel_left" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel_left"/>
+    <axis xyz="0 0 1"/>
+    <origin xyz="-0.22 0.005 0.1" rpy="0 -1.57079633 0"/>
+  </joint> 
+  
+  <link name="wheel_right">
+     <visual>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+      	 <cylinder radius="0.1" length="0.05"/>
+       </geometry>
+     </visual>
+     <collision>
+  	<geometry>
+         <cylinder radius="0.1" length="0.05"/>
+        </geometry>
+     </collision>
+   </link>
+   
+   <joint name="base_link_to_wheel_right" type="continuous">
+    <parent link="base_link"/>
+    <child link="wheel_right"/>
+    <axis xyz="0 0 1"/>
+    <origin xyz="0.22 0.005 0.1" rpy="0 -1.57079633 0"/>
+  </joint> 
+    
+  <link name="laser_front">
+    <visual>
+      <geometry>
+        <mesh
+          filename="package://itu_agv_description/meshes/lms200.dae" scale="0.001 0.001 0.001" />
+      </geometry>
+      <origin rpy="-1.57079633 0 3.14" xyz="0 0 0"/> 
+    </visual>
+    <collision>
+      <geometry>
+        <mesh
+          filename="package://itu_agv_description/meshes/lms200.dae" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>  
+  </link>
+
+  <joint name="base_link_to_laser_front" type="fixed">
+    <parent link="base_link"/>
+    <child link="laser_front"/>
+    <origin xyz="0 0.4 0.305" rpy="0 0 0"/>
+  </joint>
+
+  <link name="laser_back">
+    <visual>
+      <geometry>
+        <mesh
+        filename="package://itu_agv_description/meshes/lms200_2.dae" scale="0.001 0.001 0.001" />
+      </geometry>
+      <origin rpy="-1.57079633 0 0" xyz="-0.0775 -0.078 0.105"/>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh
+        filename="package://itu_agv_description/meshes/lms200_2.dae" scale="0.001 0.001 0.001" />
+      </geometry>
+     </collision> 
+  </link>
+
+  <joint name="base_link_to_laser_back" type="fixed">
+    <parent link="base_link"/>
+    <child link="laser_back"/>
+    <origin xyz="0 -0.4 0.305" rpy="0 0 3.14"/>
+  </joint>
+  
+   <link name="platform">
+  	<visual>
+  	   <geometry>
+  	      <mesh
+  		filename="package://itu_agv_description/meshes/tabla.dae" />
+      	   </geometry>
+      	   <origin rpy="1.571 0 1.571" xyz="-0.925 0.13 -0.41"/> 
+      	</visual>
+      	<collision>
+         <geometry>
+          <mesh
+          filename="package://itu_agv_description/meshes/tabla.dae" />
+         </geometry>
+      <origin rpy="1.571 0 1.571" xyz="-0.925 0.13 -0.41"/>
+      </collision> 
+  </link> 
+  
+  <joint name="base_link_to_tabla" type="fixed">
+    <parent link="base_link"/>
+    <child link="platform"/>
+    <origin xyz="0 0 0.55" rpy="0 0 0"/>
+  </joint> 
+  
+  <link name="Velodyne">
+  	<visual>
+  	   <geometry>
+  	      <mesh
+  		filename="package://itu_agv_description/meshes/Velodyne.dae" />
+      	   </geometry>
+      	   <origin rpy="1.571 0 1.571" xyz="0 0 -0.05"/> 
+      	</visual>
+      	<collision>
+      <geometry>
+        <mesh
+        filename="package://itu_agv_description/meshes/Velodyne.dae" />
+      </geometry>
+      <origin rpy="1.571 0 1.571" xyz="0 0 -0.05"/>
+      </collision> 
+  </link> 
+  
+  <joint name="base_link_to_Velodyne" type="fixed">
+    <parent link="base_link"/>
+    <child link="Velodyne"/>
+    <origin xyz="0 0 0.7" rpy="0 0 0"/>
+  </joint> 
+  
+  <link name="Camera">
+  	<visual>
+  	   <geometry>
+  	      <mesh
+  		filename="package://itu_agv_description/meshes/Camera.dae" />
+      	   </geometry>
+      	   <origin rpy="-1.571 0 0" xyz="0 0 0"/> 
+      	</visual>
+      	<collision>
+      <geometry>
+        <mesh
+        filename="package://itu_agv_description/meshes/Camera.dae" />
+      </geometry>
+     </collision> 
+  </link> 
+  
+  <joint name="base_link_to_Camera" type="fixed">
+    <parent link="base_link"/>
+    <child link="Camera"/>
+    <origin xyz="0 0.125 0.57" rpy="0 0 0"/>
+  </joint> 
+  
+  <link name="IMU">
+  	<visual>
+  	   <geometry>
+  	      <mesh
+  		filename="package://itu_agv_description/meshes/IMU.dae" />
+      	   </geometry>
+      	   <origin rpy="0 0 0" xyz="0 0 0"/> 
+      	</visual>
+      	<collision>
+      <geometry>
+        <mesh
+        filename="package://itu_agv_description/meshes/IMU.dae" />
+      </geometry>
+     </collision> 
+  </link> 
+  
+  <joint name="base_link_to_IMU" type="fixed">
+    <parent link="base_link"/>
+    <child link="IMU"/>
+    <origin xyz="0 0 0.56" rpy="0 0 3.14"/>
+  </joint>  
+  
+</robot>

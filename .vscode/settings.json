@@ -1,0 +1,14 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/robot/robot_ws/devel/lib/python3/dist-packages",
+        "/home/robot/first_ws/devel/lib/python3/dist-packages",
+        "/home/robot/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/robot/robot_ws/devel/lib/python3/dist-packages",
+        "/home/robot/first_ws/devel/lib/python3/dist-packages",
+        "/home/robot/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

@@ -1,0 +1,16 @@
+<library path="src">
+  <class name="ITU AGV SIMILATION UI" type="agv_similation_ui.sim_ui_plugin.AGVSimilationPlugin" base_class_type="rqt_gui_py::Plugin">
+    <description>
+      AGV SIMILATION UI.
+    </description>
+    <qtgui>
+      <group>
+        <label>ITU</label>
+      </group>
+     
+      <label>ITU AGV SIMILATION UI</label>
+      <icon>resource/itu_logo.png</icon>
+      <statustip>Great user interface to provide real value.</statustip>
+    </qtgui>
+  </class>
+</library>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <rosparam command="load" file="$(find itu_agv_gazebo)/config/itu_agv_spawn_config.yaml"/>
+  
+  <node name="ui" pkg="agv_similation_ui" type="agv_ui.py" />
+  
+  
+  
+</launch>

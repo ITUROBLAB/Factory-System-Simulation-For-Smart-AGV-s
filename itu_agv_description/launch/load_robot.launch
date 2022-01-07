@@ -1,0 +1,7 @@
+<?xml version='1.0'?>
+
+<launch>
+
+ <param name="robot_description" command="$(find xacro)/xacro '$(find itu_agv_description)/models/urdf/itu_agv_copy.xacro'"/>
+
+</launch>

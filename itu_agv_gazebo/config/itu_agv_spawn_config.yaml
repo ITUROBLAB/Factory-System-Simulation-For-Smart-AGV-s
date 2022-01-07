@@ -1,0 +1,29 @@
+
+agv_config:
+  tf_prefix:
+      AGV_1:
+        robot: "itu_agv"
+        base_link: "base_link"
+        robot_name: "itu_agv"
+        5x5: ["1.7", "1.735", "0.1", "0", "0", "-1.57079633"]   
+        20x20: ["9", "-8.8", "0", "0", "0", "3.14"]     
+        50x50: ["-11.6", "20.9", "0.4", "0", "0", "1.57079633"]
+      AGV_2:
+
+        robot: "itu_agv-2"
+        base_link: "base_link_2"
+        robot_name: "itu_agv_2"
+        20x20: ["9", "-7.8", "0", "0", "0", "3.1415"]     
+        50x50: ["-13.65", "20.9", "0.4", "0", "0", "1.57079633"] 
+
+      AGV_3:
+
+        robot: "itu_agv-3"
+        base_link: "base_link_3"
+        robot_name: "itu_agv_2"
+        50x50: ["-15.7", "20.9", "0.5", "0", "0", "1.57079633"]
+      
+  sensor_location: ["center","front","rear"]
+  sensors: ["Camera", "IMU", "Lidars", "Velodyne"]
+
+

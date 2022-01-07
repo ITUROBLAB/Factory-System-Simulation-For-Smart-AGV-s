@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This launch file spawns the configuration of ITU-AGV that you want to simulate. 
+
+ Configurations:
+ 
+ itu_agv_platform-_sensors-.sdf = ITU-AGV base
+ itu_agv_platform-_sensors-Lidars.sdf = ITU-AGV base + Sensors: Lidars
+ 
+ itu_agv_platform-center_sensors-Camera,IMU,Lidars,Velodyne.sdf  = ITU-AGV base + Platform Position: Center + Sensors: Camera, IMU, Lidars, Velodyne
+ itu_agv_platform-center_sensors-Camera,Lidars.sdf               = ITU-AGV base + Platform Position: Center + Sensors: Camera, Lidars
+ itu_agv_platform-center_sensors-Camera,IMU,Lidars.sdf           = ITU-AGV base + Platform Position: Center + Sensors: Camera, IMU, Lidars
+ itu_agv_platform-center_sensors-Camera,Lidars,Velodyne.sdf      = ITU-AGV base + Platform Position: Center + Sensors: Camera, Lidars, Velodyne
+ itu_agv_platform-center_sensors-IMU,Lidars.sdf                  = ITU-AGV base + Platform Position: Center + Sensors: IMU, Lidars
+ itu_agv_platform-center_sensors-IMU,Lidars,Velodyne.sdf         = ITU-AGV base + Platform Position: Center + Sensors: Camera, IMU, Lidars
+ itu_agv_platform-center_sensors-Lidars,Velodyne.sdf             = ITU-AGV base + Platform Position: Center + Sensors: Velodyne
+ 
+ itu_agv_platform-front_sensors-Camera,IMU,Lidars,Velodyne.sdf   = ITU-AGV base + Platform Position: Front + Sensors: Camera, IMU, Lidars, Velodyne
+ itu_agv_platform-front_sensors-Camera,Lidars.sdf                = ITU-AGV base + Platform Position: Front + Sensors: Camera, Lidars
+ itu_agv_platform-front_sensors-Camera,IMU,Lidars.sdf            = ITU-AGV base + Platform Position: Front + Sensors: Camera, IMU, Lidars,
+ itu_agv_platform-front_sensors-Camera,Lidars,Velodyne.sdf       = ITU-AGV base + Platform Position: Front + Sensors: Camera, Lidars, Velodyne
+ itu_agv_platform-front_sensors-IMU,Lidars.sdf                   = ITU-AGV base + Platform Position: Front + Sensors:IMU, Lidars
+ itu_agv_platform:front_sensors-IMU,Lidars,Velodyne.sdf          = ITU-AGV base + Platform Position: Front + Sensors: IMU, Lidars, Velodyne
+ itu_agv_platform-front_sensors-Lidars,Velodyne.sdf              = ITU-AGV base + Platform Position: Front + Sensors:Lidars, Velodyne
+ 
+ itu_agv_platform-rear_sensors-Camera,IMU,Lidars,Velodyne.sdf    = ITU-AGV base + Platform Position: Rear + Sensors: Camera, IMU, Lidars, Velodyne
+ itu_agv_platform-rear_sensors-Camera,Lidars.sdf                 = ITU-AGV base + Platform Position: Rear + Sensors: Camera, Lidars
+ itu_agv_platform-rear_sensors-Camera,IMU,Lidars.sdf             = ITU-AGV base + Platform Position: Rear + Sensors: Camera, IMU, Lidars
+ itu_agv_platform-rear_sensors-Camera,Lidars,Velodyne.sdf        = ITU-AGV base + Platform Position: Rear + Sensors: Camera, Lidars, Velodyne
+ itu_agv_platform-rear_sensors-IMU,Lidars.sdf                    = ITU-AGV base + Platform Position: Rear + Sensors: IMU, Lidars 
+ itu_agv_platform-rear_sensors-IMU,Lidars,Velodyne.sdf           = ITU-AGV base + Platform Position: Rear + Sensors: IMU, Lidars, Velodyne
+ itu_agv_platform-rear_sensors-Lidars,Velodyne.sdf               = ITU-AGV base + Platform Position: Rear + Sensors: Lidars, Velodyne        
+ 
+ AGV spawning positions:
+ 
+ ITU-AGV-1 -> 5X5: (1.7, 1.735, 0.1, 0, 0, -1.57079633)   20X20: (9, -8.8, 0, 0, 0, 3.14)     50X50: (-11.6, 20.9, 0.4, 0, 0, 1.57079633)   -->
+ 
+<launch>
+    <arg name="tf_prefix" default="AGV_1"/>
+    <arg name="robot" default="itu_agv"/>
+    <arg name="location" default="center"/>    <!-- Options: center, front, rear -->
+    <arg name="on" default="IMU,Lidars"/>    <!-- Sensor names have to be written in alphabetical order. Camera, IMU, Lidars, Velodyne -->
+
+
+    <arg name="base_link" default="base_link" />
+
+    <arg name="robot_name" default="itu_agv" />
+    <arg name="x" default="9.0" />
+    <arg name="y" default="-8.8" />
+    <arg name="z" default="0" />
+    <arg name="roll" default="0.0"/>
+    <arg name="pitch" default="0.0"/>
+    <arg name="yaw" default="3.14" /> 
+
+
+
+
+
+
+   <group ns="$(arg tf_prefix)">
+
+   <param name="tf_prefix" value="$(arg tf_prefix)" />
+    <arg name="sdf_robot_file" value="$(find itu_agv_description)/models/$(arg robot_name)/$(arg robot)_platform-$(arg location)_sensors-$(arg on).sdf" />
+    <node name="$(arg robot_name)_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-file $(arg sdf_robot_file) -sdf -x $(arg x) -y $(arg y) -z $(arg z)  -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) -model $(arg robot_name)"/>
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="laserTf" args="0.32 0 0.21 0 0 0 $(arg base_link) lms_sensor_link"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="laser2Tf" args="-0.32 0 0.21 3.14 0 0 $(arg base_link) lms_sensor2_link"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base2footprint" args="0.0 0.0 0.12 0.0 0.0 0.0 $(arg tf_prefix)/base_footprint base_link"/>
+
+   </group>
+
+    <!--<node pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true">
+    <rosparam command="load" file="$(find robot_localization)/params/ekf_template.yaml" /> 
+    </node>-->
+       
+   <!--<node pkg="robot_pose_ekf" type="robot_pose_ekf" name="itu_agv_ekf">
+  	<param name="output_frame" value="odom_combined"/>
+  	<param name="base_footprint_frame" value="base_footprint"/>
+  	<param name="freq" value="30.0"/>
+  	<param name="sensor_timeout" value="1.0"/>  
+  	<param name="odom_used" value="true"/>
+  	<param name="imu_used" value="false"/>
+  	<param name="vo_used" value="false"/>
+  	
+    </node> -->
+
+</launch>
+
