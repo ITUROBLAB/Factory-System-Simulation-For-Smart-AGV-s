@@ -215,15 +215,6 @@
        <parent>base_link</parent>
     </joint>
 
-    <!-- <include>
-      <uri>model://hokuyo</uri>
-      <pose>0 0 0.33 0 0 0</pose>
-    </include>
-    <joint name="hokuyo_joint" type="fixed">
-      <child>hokuyo::link</child>
-      <parent>base_link</parent>
-    </joint> -->
-
     <include>
        <uri>model://Velodyne</uri>
        <pose>0 0 0.665 1.57079633 0 0</pose>

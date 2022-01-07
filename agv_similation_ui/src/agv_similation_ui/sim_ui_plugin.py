@@ -55,7 +55,7 @@ class AGVSimilationPlugin(Plugin):
         self.oppened_world = None
         self.uuid = roslaunch.rlutil.get_or_generate_uuid(None, False)
         self.worlds = ['5x5','20x20','50x50']
-        self.start_path = rospkg.RosPack().get_path('itu_agv_gazebo')+'/launch/start_'
+        self.start_path = rospkg.RosPack().get_path('itu_agv_gazebo')+'/launch/start_factory.launch'
         self.spawn_path = rospkg.RosPack().get_path('itu_agv_gazebo')+'/launch/spawn_itu_agv_moduler.launch'
         self.rviz_path = rospkg.RosPack().get_path('itu_agv_gazebo')+'/launch/rviz_itu_agv.launch'
         self.agv_spawn_config= rospy.get_param('agv_config')
@@ -102,8 +102,9 @@ class AGVSimilationPlugin(Plugin):
 
 
     def start_world(self,world_name):
-
-        cli_arg = [self.start_path+world_name+'.launch']    
+        
+        roslaunch_arg = 'world_name:='+world_name
+        cli_arg = [(self.start_path,roslaunch_arg)]    
         self.launch(cli_arg)
 
     
