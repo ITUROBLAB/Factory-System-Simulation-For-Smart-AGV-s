@@ -64,9 +64,22 @@
     <node name="$(arg robot_name)_spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
     args="-file $(arg sdf_robot_file) -sdf -x $(arg x) -y $(arg y) -z $(arg z)  -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) -model $(arg robot_name)"/>
 
-    <node pkg="tf2_ros" type="static_transform_publisher" name="laserTf" args="0.32 0 0.21 0 0 0 $(arg base_link) lms_sensor_link"/>
-    <node pkg="tf2_ros" type="static_transform_publisher" name="laser2Tf" args="-0.32 0 0.21 3.14 0 0 $(arg base_link) lms_sensor2_link"/>
-    <node pkg="tf2_ros" type="static_transform_publisher" name="base2footprint" args="0.0 0.0 0.12 0.0 0.0 0.0 $(arg tf_prefix)/base_footprint base_link"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="laserTf" args="0.32 0 0.21 0 0 0 $(arg tf_prefix)/base_link lms_sensor_link"/> 
+    <node pkg="tf2_ros" type="static_transform_publisher" name="laser2Tf" args="-0.32 0 0.21 3.14 0 0 $(arg tf_prefix)/base_link lms_sensor2_link"/> 
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base2footprint" args="0.0 0.0 0.12 0.0 0.0 0.0 $(arg tf_prefix)/base_footprint $(arg tf_prefix)/base_link"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="rwheel2base" args="0.22 0.0005 0.1 0.0 -1.57079633 0.0 $(arg tf_prefix)/base_link $(arg tf_prefix)/wheel_right"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="lwheel2base" args="-0.22 0.005 0.1 0.0 -1.57079633 0.0 $(arg tf_prefix)/base_link $(arg tf_prefix)/wheel_left"/>
+
+
+   
+     <node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen">
+       <param name="destination_frame" value="$(arg tf_prefix)/base_link" />
+       <param name="scan_destination_topic"  value="scan_multi" />
+       <param name="laserscan_topics" value=" /lms/laser/scan /lms/laser_2/scan" />
+
+     </node>
+
+ 
 
    </group>
 

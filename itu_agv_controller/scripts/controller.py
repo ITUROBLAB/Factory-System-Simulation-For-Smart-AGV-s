@@ -66,7 +66,7 @@ class Diff_Drive_Controller():
                 diff_drive_cmd.angular.z = 0.0
 
                 self.cmd_pub.publish(diff_drive_cmd)   
-                break
+                goal_reached = True
              
 
 
@@ -76,7 +76,7 @@ while not rospy.is_shutdown():
     try:
         control = Diff_Drive_Controller()
 
-        control.move_agv([7,1])
+        control.move_agv([5,0])
     except KeyboardInterrupt:
         break
 

@@ -221,7 +221,7 @@
     </include>
     <joint name="Velodyne_joint" type="fixed">
        <child>Velodyne::link</child>
-       <parent>base_link</parent>
+       <parent>platform</parent>
     </joint>
           
   </model>	

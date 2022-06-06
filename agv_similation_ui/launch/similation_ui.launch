@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+
 <launch>
   
   <rosparam command="load" file="$(find itu_agv_gazebo)/config/itu_agv_spawn_config.yaml"/>

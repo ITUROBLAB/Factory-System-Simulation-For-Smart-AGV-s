@@ -226,7 +226,7 @@
     
     <include>
        <uri>model://Allied Vision Mako G192C</uri>
-       <pose>0.130 0 0.58 -1.57079633 0 -1.57079633</pose>
+       <pose>0.130 0 0.58 -1.57079633 0 0</pose>
     </include>
     <joint name="Camera_joint" type="fixed">
        <child>Allied Vision Mako G192C::link</child>

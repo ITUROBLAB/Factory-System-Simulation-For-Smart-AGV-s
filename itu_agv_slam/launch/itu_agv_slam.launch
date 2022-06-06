@@ -1,0 +1,21 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="slam_methods" default="gmapping" doc="slam type [gmapping, cartographer, hector, karto, frontier_exploration]"/>
+  <arg name="configuration_basename" default="itu_agv_lds_2d.lua"/>
+  <arg name="open_rviz" default="true"/>
+
+
+  <include file="$(find itu_agv_description)/launch/load_robot.launch"/>
+    
+  
+  <!-- SLAM: Gmapping, Cartographer, Hector, Karto, Frontier_exploration, RTAB-Map -->
+  <include file="$(find itu_agv_slam)/launch/itu_agv_$(arg slam_methods).launch">
+    <arg name="configuration_basename" value="$(arg configuration_basename)"/>
+  </include>
+
+  <!-- rviz -->
+  <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find itu_agv_slam)/rviz/itu_agv_$(arg slam_methods).rviz"/>
+  </group>
+</launch>

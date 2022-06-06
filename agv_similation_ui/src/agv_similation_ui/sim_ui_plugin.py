@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import os
+from pydoc_data.topics import topics
 import rospy, rospkg
 import roslaunch
 
@@ -53,21 +54,34 @@ class AGVSimilationPlugin(Plugin):
         
         ####INIT PARAMETERS
         self.oppened_world = None
+        self.agv_spanned = False 
+        self.slam_started = False
         self.uuid = roslaunch.rlutil.get_or_generate_uuid(None, False)
         self.worlds = ['5x5','20x20','50x50']
         self.start_path = rospkg.RosPack().get_path('itu_agv_gazebo')+'/launch/start_factory.launch'
         self.spawn_path = rospkg.RosPack().get_path('itu_agv_gazebo')+'/launch/spawn_itu_agv_moduler.launch'
         self.rviz_path = rospkg.RosPack().get_path('itu_agv_gazebo')+'/launch/rviz_itu_agv.launch'
+        self.slam_path = rospkg.RosPack().get_path('itu_agv_slam')+'/launch/itu_agv_slam.launch'
+        self.bag_record_path = rospkg.RosPack().get_path('itu_agv_gazebo')+ '/launch/record_data.launch'
         self.agv_spawn_config= rospy.get_param('agv_config')
         self.agv_1_sensor = [0,0,0,0]
         self.agv_2_sensor = [0,0,0,0]
         self.agv_3_sensor = [0,0,0,0]
+        self.bag_topics = []
+
+
 
         ##UI Connections
         for name in self.agv_spawn_config['sensor_location']:
             self._widget.comboBox_sensor_loc.addItem(name)
             self._widget.comboBox_sensor_loc_2.addItem(name)
             self._widget.comboBox_sensor_loc_4.addItem(name)
+
+        #SLAM BOX
+        self._widget.comboBox_slam.addItem("gmapping")
+        self._widget.pushButton_start_slam.clicked.connect(self.slam_button_cb)
+        self._widget.pushButton_save_map.clicked.connect(self.save_map_button_cb)
+
             
 
         self._widget.W5X5pushButton.clicked.connect(self.w5x5button_cb)
@@ -94,8 +108,10 @@ class AGVSimilationPlugin(Plugin):
 
         self._widget.pushButton_rviz.clicked.connect(self.rviz_button_cb)
 
-
-
+        self._widget.pushButton_get_topics.clicked.connect(self.get_topic_cb)
+        self._widget.pushButton_add_to_bag.clicked.connect(self.add_to_bag_cb)
+        self._widget.pushButton_reset_bag_list.clicked.connect(self.reset_bag_list_cb)
+        self._widget.pushButton_record_bag.clicked.connect(self.record_bag_cb)
     def launch(self,cli_args):     
         parent = roslaunch.parent.ROSLaunchParent(self.uuid, cli_args)
         parent.start()
@@ -159,6 +175,9 @@ class AGVSimilationPlugin(Plugin):
 
     def spawn_agv_button_cb(self):
 
+        if self.oppened_world == None :
+            self._widget.info_text.setText('To Spawn AGV Please Start Simulation First')
+            return
 
         if self.agv_1_sensor[0] or self.agv_1_sensor[1] or self.agv_1_sensor[2] or self.agv_1_sensor[3]:
             
@@ -189,7 +208,7 @@ class AGVSimilationPlugin(Plugin):
 
             roslauch_file = [(self.spawn_path,roslaunch_arg)]
 
-            rospy.logwarn(roslauch_file)
+            self.agv_spanned = True
             self.launch(roslauch_file)
         else:
             self._widget.info_text.setText('Please pick at least one sensor')
@@ -227,6 +246,9 @@ class AGVSimilationPlugin(Plugin):
 
     def spawn_agv_button_2_cb(self):
         
+        if self.oppened_world == None :
+            self._widget.info_text.setText('To Spawn AGV Please Start Simulation First')
+            return
 
         if self.oppened_world == '5x5': 
             self._widget.info_text.setText('AGV2 cannot open at 5x5 world')
@@ -261,8 +283,7 @@ class AGVSimilationPlugin(Plugin):
                              'yaw:='+params[self.oppened_world][5]]
 
             roslauch_file = [(self.spawn_path,roslaunch_arg)]
-
-            rospy.logwarn(roslauch_file)
+            self.agv_spanned = True
             self.launch(roslauch_file)
         else:
             self._widget.info_text.setText('Please pick at least one sensor')
@@ -287,6 +308,11 @@ class AGVSimilationPlugin(Plugin):
 
     def spawn_agv_button_3_cb(self):
 
+
+        if self.oppened_world == None :
+            self._widget.info_text.setText('To Spawn AGV Please Start Simulation First')
+            return
+            
         if not self.oppened_world == '50x50':
             self._widget.info_text.setText('AGV3 cannot open at {} world'.format(self.oppened_world))
             return
@@ -320,7 +346,83 @@ class AGVSimilationPlugin(Plugin):
 
             roslauch_file = [(self.spawn_path,roslaunch_arg)]
 
-            rospy.logwarn(roslauch_file)
             self.launch(roslauch_file)
+            self.agv_spanned = True
         else:
             self._widget.info_text.setText('Please pick at least one sensor')
+
+
+    ## SLAM FUNCT
+
+    def slam_button_cb(self):
+
+        pass_arg =self._widget.comboBox_slam.currentText()
+
+        roslaunch_arg = ['slam_methods:='+pass_arg]
+
+        roslaunch_file = [(self.slam_path,roslaunch_arg)]
+
+        if self.agv_spanned :
+            self.launch(roslaunch_file)
+            self.slam_started= True
+            self._widget.info_text_slam.setStyleSheet('background-color: green;')
+            self._widget.info_text_slam.setText("Slam sucssefully started with"+ pass_arg + " method")
+        else :
+            self._widget.info_text_slam.setStyleSheet('background-color: red;')
+            self._widget.info_text_slam.setText("Before Initilaize Slam , Spawn a ITU_AGV")
+
+
+    def get_topic_cb(self):
+        topics = rospy.get_published_topics()
+        self._widget.comboBox_topics.clear()
+
+        for tpcs in topics:
+
+            self._widget.comboBox_topics.addItem(tpcs[0])
+       
+
+    def add_to_bag_cb(self):
+
+       _topic = self._widget.comboBox_topics.currentText()
+       self.bag_topics.append(_topic) 
+       _bag_text = ""
+       for tpcs in self.bag_topics:
+           _bag_text = _bag_text +  "\n" + tpcs
+
+       self._widget.textEdit_bag_list.setText(_bag_text)
+
+    def reset_bag_list_cb(self):
+        self.bag_topics = []
+        self._widget.textEdit_bag_list.clear()
+
+
+    def record_bag_cb(self):
+        _bag_name = self._widget.lineEdit_bag_name.text()
+        _bag_duration = self._widget.lineEdit_bag_duration.text()
+
+        _topics = ""
+
+        for tpcs in self.bag_topics:
+            _topics = _topics + "  " + tpcs
+
+        roslaunch_args = ['topics_name:='+_topics,
+                          'bag_name:='+ _bag_name,
+                          'duration:='+ _bag_duration]
+
+        roslaunch_file = [(self.bag_record_path,roslaunch_args)]
+
+        self._widget.info_text.setText(_topics + ' topics are recording to '+ _bag_name + ' file for ' + _bag_duration + " seconds.")
+
+        self.launch(roslaunch_file)
+    
+
+    def save_map_button_cb(self):
+
+        # os.system('rosrun map_server map_saver -f deneme_mapppp ')
+        # node =roslaunch.core.Node('map_server' , 'map_saver','map_saver','',None,'-f new_map map:=/home/murat')
+        # launch = roslaunch.scriptapi.ROSLaunch()
+        # launch.start()
+
+        # process = launch.launch(node)
+        # print(process.is_alive())    
+        pass

@@ -16,177 +16,43 @@
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <widget class="QFrame" name="frame_2">
+  <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>160</y>
-     <width>291</width>
-     <height>161</height>
+     <x>0</x>
+     <y>0</y>
+     <width>1271</width>
+     <height>841</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(136, 138, 133);</string>
+   <property name="currentIndex">
+    <number>0</number>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QPushButton" name="W5X5pushButton">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>70</y>
-      <width>71</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(196, 160, 0);</string>
-    </property>
-    <property name="text">
-     <string>5X5</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="W20X20pushButton">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>70</y>
-      <width>71</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(196, 160, 0);</string>
-    </property>
-    <property name="text">
-     <string>20X20</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="W50X50pushButton">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>70</y>
-      <width>71</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(196, 160, 0);</string>
-    </property>
-    <property name="text">
-     <string>50X50</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>421</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
-    <property name="lineWidth">
-     <number>3</number>
-    </property>
-    <property name="midLineWidth">
-     <number>7</number>
-    </property>
-    <property name="text">
-     <string>START FACTORY SIMULATION ENVIRONMENT</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QTextEdit" name="info_text">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>660</y>
-     <width>591</width>
-     <height>70</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QFrame" name="frame_9">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>340</y>
-     <width>1141</width>
-     <height>261</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QFrame" name="frame">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>351</width>
-      <height>211</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QComboBox" name="comboBox_sensor_loc">
+   <widget class="QWidget" name="tab">
+    <attribute name="title">
+     <string>Simulation Configuration</string>
+    </attribute>
+    <widget class="QTextEdit" name="info_text">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>70</y>
-       <width>151</width>
-       <height>31</height>
+       <x>580</x>
+       <y>610</y>
+       <width>591</width>
+       <height>70</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frame_11">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>150</y>
+       <width>291</width>
+       <height>161</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(196, 160, 0);</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>50</y>
-       <width>111</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Sensor Location</string>
-     </property>
-    </widget>
-    <widget class="QFrame" name="frame_3">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>50</y>
-       <width>151</width>
-       <height>141</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(196, 160, 0);</string>
+      <string notr="true">background-color: rgb(136, 138, 133);</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -194,157 +60,31 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QCheckBox" name="checkBox_Camera">
+     <widget class="QPushButton" name="pushButton_rviz">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>10</y>
-        <width>92</width>
-        <height>23</height>
+        <x>20</x>
+        <y>50</y>
+        <width>251</width>
+        <height>61</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Camera</string>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="checkBox_IMU">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>40</y>
-        <width>92</width>
-        <height>23</height>
-       </rect>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(196, 160, 0);</string>
       </property>
       <property name="text">
-       <string>IMU</string>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="checkBox_Lidars">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>70</y>
-        <width>92</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Lidars</string>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="checkBox_Veledoyne">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>100</y>
-        <width>92</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Veledoyne</string>
+       <string>OPEN RVIZ</string>
       </property>
      </widget>
     </widget>
-    <widget class="QLabel" name="label_2">
+    <widget class="QFrame" name="frame_9">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
-       <width>111</width>
-       <height>17</height>
+       <y>330</y>
+       <width>1141</width>
+       <height>261</height>
       </rect>
-     </property>
-     <property name="text">
-      <string>Sensors</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>10</y>
-       <width>67</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>ITU AGV 1</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_spawn_agv">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>130</y>
-       <width>91</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(196, 160, 0);</string>
-     </property>
-     <property name="text">
-      <string>SPAWN</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QFrame" name="frame_4">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>20</y>
-      <width>351</width>
-      <height>211</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QComboBox" name="comboBox_sensor_loc_2">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>70</y>
-       <width>151</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(196, 160, 0);</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>50</y>
-       <width>111</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Sensor Location</string>
-     </property>
-    </widget>
-    <widget class="QFrame" name="frame_5">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>50</y>
-       <width>151</width>
-       <height>141</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(196, 160, 0);</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -352,157 +92,492 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QCheckBox" name="checkBox_Camera_2">
+     <widget class="QFrame" name="frame">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>10</y>
-        <width>92</width>
-        <height>23</height>
+        <x>20</x>
+        <y>20</y>
+        <width>351</width>
+        <height>211</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Camera</string>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(136, 138, 133);</string>
       </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QComboBox" name="comboBox_sensor_loc">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>70</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>50</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Sensor Location</string>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>151</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QCheckBox" name="checkBox_Camera">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>10</y>
+          <width>92</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Camera</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_IMU">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>40</y>
+          <width>92</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>IMU</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Lidars">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>70</y>
+          <width>92</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Lidars</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Veledoyne">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>100</y>
+          <width>92</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Veledoyne</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Sensors</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>10</y>
+         <width>67</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ITU AGV 1</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_spawn_agv">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>130</y>
+         <width>91</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+       <property name="text">
+        <string>SPAWN</string>
+       </property>
+      </widget>
      </widget>
-     <widget class="QCheckBox" name="checkBox_IMU_2">
+     <widget class="QFrame" name="frame_4">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>40</y>
-        <width>92</width>
-        <height>23</height>
+        <x>390</x>
+        <y>20</y>
+        <width>351</width>
+        <height>211</height>
        </rect>
       </property>
-      <property name="text">
-       <string>IMU</string>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(136, 138, 133);</string>
       </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QComboBox" name="comboBox_sensor_loc_2">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>70</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>50</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Sensor Location</string>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>151</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QCheckBox" name="checkBox_Camera_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>10</y>
+          <width>92</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Camera</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_IMU_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>40</y>
+          <width>92</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>IMU</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Lidars_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>70</y>
+          <width>92</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Lidars</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Veledoyne_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>100</y>
+          <width>92</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Veledoyne</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Sensors</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>10</y>
+         <width>67</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ITU AGV 2</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_spawn_agv_2">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>130</y>
+         <width>91</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+       <property name="text">
+        <string>SPAWN</string>
+       </property>
+      </widget>
      </widget>
-     <widget class="QCheckBox" name="checkBox_Lidars_2">
+     <widget class="QFrame" name="frame_6">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>70</y>
-        <width>92</width>
-        <height>23</height>
+        <x>750</x>
+        <y>20</y>
+        <width>351</width>
+        <height>211</height>
        </rect>
       </property>
-      <property name="text">
-       <string>Lidars</string>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(136, 138, 133);</string>
       </property>
-     </widget>
-     <widget class="QCheckBox" name="checkBox_Veledoyne_2">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>100</y>
-        <width>92</width>
-        <height>23</height>
-       </rect>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
       </property>
-      <property name="text">
-       <string>Veledoyne</string>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
       </property>
+      <widget class="QComboBox" name="comboBox_sensor_loc_4">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>70</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>50</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Sensor Location</string>
+       </property>
+      </widget>
+      <widget class="QFrame" name="frame_8">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>151</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QCheckBox" name="checkBox_Camera_4">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>10</y>
+          <width>92</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Camera</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_IMU_4">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>40</y>
+          <width>92</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>IMU</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Lidars_4">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>70</y>
+          <width>92</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Lidars</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_Veledoyne_4">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>100</y>
+          <width>92</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Veledoyne</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QLabel" name="label_14">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Sensors</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_15">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>10</y>
+         <width>67</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ITU AGV 3</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_spawn_agv_4">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>130</y>
+         <width>91</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+       <property name="text">
+        <string>SPAWN</string>
+       </property>
+      </widget>
      </widget>
     </widget>
-    <widget class="QLabel" name="label_8">
+    <widget class="QFrame" name="frame_2">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>111</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Sensors</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_9">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>10</y>
-       <width>67</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>ITU AGV 2</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_spawn_agv_2">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>130</y>
-       <width>91</width>
-       <height>61</height>
+       <x>30</x>
+       <y>150</y>
+       <width>291</width>
+       <height>161</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(196, 160, 0);</string>
-     </property>
-     <property name="text">
-      <string>SPAWN</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QFrame" name="frame_6">
-    <property name="geometry">
-     <rect>
-      <x>750</x>
-      <y>20</y>
-      <width>351</width>
-      <height>211</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(136, 138, 133);</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QComboBox" name="comboBox_sensor_loc_4">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>70</y>
-       <width>151</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(196, 160, 0);</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_13">
-     <property name="geometry">
-      <rect>
-       <x>180</x>
-       <y>50</y>
-       <width>111</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Sensor Location</string>
-     </property>
-    </widget>
-    <widget class="QFrame" name="frame_8">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>50</y>
-       <width>151</width>
-       <height>141</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(196, 160, 0);</string>
+      <string notr="true">background-color: rgb(136, 138, 133);</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
@@ -510,156 +585,439 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QCheckBox" name="checkBox_Camera_4">
+     <widget class="QPushButton" name="W5X5pushButton">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>10</y>
-        <width>92</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Camera</string>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="checkBox_IMU_4">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>40</y>
-        <width>92</width>
-        <height>23</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>IMU</string>
-      </property>
-     </widget>
-     <widget class="QCheckBox" name="checkBox_Lidars_4">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
+        <x>20</x>
         <y>70</y>
-        <width>92</width>
-        <height>23</height>
+        <width>71</width>
+        <height>61</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(196, 160, 0);</string>
+      </property>
       <property name="text">
-       <string>Lidars</string>
+       <string>5X5</string>
       </property>
      </widget>
-     <widget class="QCheckBox" name="checkBox_Veledoyne_4">
+     <widget class="QPushButton" name="W20X20pushButton">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>100</y>
-        <width>92</width>
-        <height>23</height>
+        <x>110</x>
+        <y>70</y>
+        <width>71</width>
+        <height>61</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(196, 160, 0);</string>
+      </property>
       <property name="text">
-       <string>Veledoyne</string>
+       <string>20X20</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="W50X50pushButton">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>70</y>
+        <width>71</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(196, 160, 0);</string>
+      </property>
+      <property name="text">
+       <string>50X50</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>421</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="lineWidth">
+       <number>3</number>
+      </property>
+      <property name="midLineWidth">
+       <number>7</number>
+      </property>
+      <property name="text">
+       <string>START FACTORY SIMULATION ENVIRONMENT</string>
       </property>
      </widget>
     </widget>
-    <widget class="QLabel" name="label_14">
+    <widget class="QTabWidget" name="tabWidget_2">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>111</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Sensors</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_15">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>10</y>
-       <width>67</width>
-       <height>17</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>ITU AGV 3</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_spawn_agv_4">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
+       <x>650</x>
        <y>130</y>
-       <width>91</width>
-       <height>61</height>
+       <width>501</width>
+       <height>181</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(196, 160, 0);</string>
+      <string notr="true">background-color: rgb(136, 138, 133);</string>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>SLAM</string>
+      </attribute>
+      <widget class="QPushButton" name="pushButton_start_slam">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>20</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+       <property name="text">
+        <string>START SLAM</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_slam">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>20</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="info_text_slam">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>471</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_save_map">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>70</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+       <property name="text">
+        <string>SAVE MAP</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>SLAM Method</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="textBrowser_map_name">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>70</y>
+         <width>161</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextEditable|Qt::TextSelectableByMouse</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>69</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Enter A Map Name</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
+       <string>NAVIGATION</string>
+      </attribute>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="frame_12">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>610</y>
+       <width>531</width>
+       <height>171</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(136, 138, 133);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="pushButton_get_topics">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(196, 160, 0);</string>
+      </property>
+      <property name="text">
+       <string>GET TOPICS</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_topics">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(196, 160, 0);</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="textEdit_bag_list">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>20</y>
+        <width>111</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+background-color: rgb(237, 212, 0);</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_add_to_bag">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>100</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Add to List</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_reset_bag_list">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>130</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Reset List</string>
+      </property>
+     </widget>
+     <widget class="QFrame" name="frame_7">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>20</y>
+        <width>211</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::WinPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Bag Name</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>71</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Duration</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_record_bag">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>90</y>
+         <width>101</width>
+         <height>25</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Record Bag</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_bag_name">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>10</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_bag_duration">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>50</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(196, 160, 0);</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>30</y>
+       <width>491</width>
+       <height>91</height>
+      </rect>
      </property>
      <property name="text">
-      <string>SPAWN</string>
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>:/newPrefix/logo-tr.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>481</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>logo-tr.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>1010</x>
+       <y>30</y>
+       <width>121</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>92991912.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>
-  </widget>
-  <widget class="QFrame" name="frame_11">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>160</y>
-     <width>291</width>
-     <height>161</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(136, 138, 133);</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QPushButton" name="pushButton_rviz">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>50</y>
-      <width>251</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(196, 160, 0);</string>
-    </property>
-    <property name="text">
-     <string>OPEN RVIZ</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QFrame" name="frame_7">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>20</y>
-     <width>481</width>
-     <height>101</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-image: url(:/newPrefix/logo-tr.png);</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
   </widget>
  </widget>
  <resources>

@@ -1,4 +1,4 @@
-from __future__ import print_function
+#!/usr/bin/env python3
 
 import threading
 
@@ -63,7 +63,7 @@ speedBindings={
 class PublishThread(threading.Thread):
     def __init__(self, rate):
         super(PublishThread, self).__init__()
-        self.publisher = rospy.Publisher('cmd_vel', Twist, queue_size = 1)
+        self.publisher = rospy.Publisher('/AGV_1/cmd_vel', Twist, queue_size = 1)
         self.x = 0.0
         self.y = 0.0
         self.z = 0.0

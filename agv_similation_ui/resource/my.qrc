@@ -1,8 +1,0 @@
-<RCC>
-  <qresource prefix="newPrefix"/>
-  <qresource prefix="newPrefix">
-    <file>logo-tr.png</file>
-    <file>itu_back.png</file>
-    <file>itu_logo.png</file>
-  </qresource>
-</RCC>
